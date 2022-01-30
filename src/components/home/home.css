@@ -1,0 +1,11 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.center p {
+  max-width: 800px;
+  font-size: large;
+}

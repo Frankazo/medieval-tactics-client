@@ -16,6 +16,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .inst {
+    max-width: 400px;
+    padding-left: 40px;
+  }
 `
 
 class Game extends Component {
@@ -164,6 +169,12 @@ class Game extends Component {
             {/* <Button variant="dark" onClick={() => this.join(user.email, 'create')}>Start a Game</Button> */}
 
             <div>
+              <p>
+                Create a game by inputing any random word and give the code to a buddy.
+                <br />
+                <br />
+                If you&apos;re joining a game just input the same code
+              </p>
               <input placeholder="Game Id" type="text" onChange={(event) => this.setGameId(event.target.value)} />
               <Button variant="dark" onClick={() => this.join(this.state.gameId, 'join')} type="submit">Join a Game</Button>
             </div>
@@ -187,6 +198,12 @@ class Game extends Component {
                 dealDamage = {this.dealDamage}
                 gameStarted = {this.state.gameStarted}
               />
+              <p className='inst'>
+                Just click your character to move or attack!
+                <br />
+                <br />
+                If you created the game you are the archer, otherwise you are the warrior
+              </p>
             </Container>
           </div>
         )

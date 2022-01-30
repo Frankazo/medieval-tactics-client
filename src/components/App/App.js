@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
+import './App.css'
 
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
@@ -9,6 +10,7 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Game from '../Game/Game'
+import Home from '../home/home'
 
 class App extends Component {
   constructor () {
@@ -32,7 +34,7 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
+      <Fragment className="bg">
         <Header user={user} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert
@@ -59,11 +61,15 @@ class App extends Component {
             <Game msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
+        <Route user={user} exact path='/' render={() => (
+          <Home />
+        )} />
+
         <footer>
           <p>
+          Frank Luis-Ravelo: <a href="https://www.linkedin.com/in/franklr/">LinkedIn Profile</a><br/>
           Brandon DepalmaFarr: <a href="https://www.linkedin.com/in/brandon-depalmafarr/">LinkedIn Profile</a><br/>
           John Lucker: <a href="https://www.linkedin.com/in/john-lucker/">LinkedIn Profile</a><br/>
-          Frank Luis-Ravelo: <a href="https://www.linkedin.com/in/franklr/">LinkedIn Profile</a><br/>
             <a href="https://github.com/SourceCode-Sorcerers/medieval-tactics-client">GitHub Project</a><br/>
             <a href="https://sites.google.com/mintbean.io/2020-07-10-multiplayer-hackath/home?authuser=2">Hackathon Prompt</a><br/>
           A turn based tactical combat game.
